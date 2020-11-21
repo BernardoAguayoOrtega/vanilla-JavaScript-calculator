@@ -1,0 +1,25 @@
+/*Calculator*/
+.calculator-container {
+  align-items: center;
+  background-color: lightcoral;
+  display: flex;
+  height: 90vh;
+  justify-content: center;
+	width: 100%;
+}
+
+.calculator {
+  border: 1px solid black;
+}
+
+/*calculator parts*/
+.screen-container {
+  background-color: white;
+  height: 20vh;
+}
+
+.numbers-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
