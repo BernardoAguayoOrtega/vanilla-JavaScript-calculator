@@ -7,17 +7,6 @@ class Calculator {
 		this.$screen = document.getElementById('screen');
 		this.$calculator = document.querySelector('.calculator');
 
-		this.$zero = document.getElementById('zero');
-		this.$one = document.getElementById('one');
-		this.$two = document.getElementById('two');
-		this.$three = document.getElementById('three');
-		this.$four = document.getElementById('four');
-		this.$five = document.getElementById('five');
-		this.$six = document.getElementById('six');
-		this.$seven = document.getElementById('seven');
-		this.$eight = document.getElementById('eight');
-		this.$nine = document.getElementById('nine');
-
 		this.$multi = document.getElementById('multi');
 		this.$divide = document.getElementById('divide');
 		this.$sum = document.getElementById('sum');
@@ -31,35 +20,34 @@ class Calculator {
 	addEventListeners() {
 		this.$calculator.addEventListener('click', (event) => {
 			this.pressNumber(event);
+			this.pressSymbol(event);
 		});
 	}
 
 	pressNumber(event) {
 		event.stopPropagation();
 
-		if (event.target.matches('#one')) {
-			this.addNumberDependTheOption(1);
-		} else if (event.target.matches('#two')) {
-			this.option;
-			this.addNumberDependTheOption(2);
-		} else if (event.target.matches('#three')) {
-			this.addNumberDependTheOption(3);
-		} else if (event.target.matches('#four')) {
-			this.option;
-			this.addNumberDependTheOption(4);
-		} else if (event.target.matches('#five')) {
-			this.addNumberDependTheOption(5);
-		} else if (event.target.matches('#six')) {
-			this.option;
-			this.addNumberDependTheOption(6);
-		} else if (event.target.matches('#seven')) {
-			this.addNumberDependTheOption(7);
-		} else if (event.target.matches('#eight')) {
-			this.addNumberDependTheOption(8);
-		} else if (event.target.matches('#nine')) {
-			this.addNumberDependTheOption(9);
-		} else if (event.target.matches('#zero')) {
-			this.addNumberDependTheOption(0);
+		switch (event.target.id) {
+			case 'one':
+				return this.addNumberDependTheOption(1);
+			case 'two':
+				return this.addNumberDependTheOption(2);
+			case 'three':
+				return this.addNumberDependTheOption(3);
+			case 'four':
+				return this.addNumberDependTheOption(4);
+			case 'five':
+				return this.addNumberDependTheOption(5);
+			case 'six':
+				return this.addNumberDependTheOption(6);
+			case 'seven':
+				return this.addNumberDependTheOption(7);
+			case 'eight':
+				return this.addNumberDependTheOption(8);
+			case 'nine':
+				return this.addNumberDependTheOption(9);
+			case 'zero':
+				return this.addNumberDependTheOption(0);
 		}
 	}
 
@@ -77,6 +65,10 @@ class Calculator {
 	addNumbersInsideSecondNumber(number) {
 		this.firstNumber.push(number);
 		this.$screen.innerText = this.firstNumber.join('');
+	}
+
+	pressSymbol(event) {
+		event.stopPropagation();
 	}
 }
 
