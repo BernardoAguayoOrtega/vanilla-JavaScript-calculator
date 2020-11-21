@@ -55,6 +55,7 @@ class Calculator {
 		this.option
 			? this.addNumbersInsideFirstNumber(number)
 			: this.addNumbersInsideSecondNumber(number);
+		console.log(this.option)
 	}
 
 	addNumbersInsideFirstNumber(number) {
@@ -63,12 +64,18 @@ class Calculator {
 	}
 
 	addNumbersInsideSecondNumber(number) {
-		this.firstNumber.push(number);
+		this.secondNumber.push(number);
 		this.$screen.innerText = this.firstNumber.join('');
 	}
 
 	pressSymbol(event) {
 		event.stopPropagation();
+
+		switch(event.target.id){
+			case "divide": {
+				this.option = false;
+			}
+		}
 	}
 }
 
