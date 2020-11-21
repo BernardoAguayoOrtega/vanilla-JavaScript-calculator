@@ -88,20 +88,34 @@ class Calculator {
 	pressEqual(event) {
 		event.stopPropagation();
 
-		if (event.target.matches('#equal'))
+		if (event.target.matches('#equal')) {
 			this.$screen.innerText = this.doOperation();
+			this.option = true;
+		}
 	}
 
 	doOperation() {
 		switch (this.operation) {
 			case 0:
-				return Math.floor(Number(this.firstNumber) / Number(this.secondNumber));
+				return Math.floor(
+					parseInt(this.firstNumber.join('')) /
+						parseInt(this.secondNumber.join('')),
+				);
 			case 1:
-				return Math.floor(Number(this.firstNumber) + Number(this.secondNumber));
+				return Math.floor(
+					parseInt(this.firstNumber.join('')) +
+						parseInt(this.secondNumber.join('')),
+				);
 			case 2:
-				return Math.floor(Number(this.firstNumber) * Number(this.secondNumber));
+				return Math.floor(
+					parseInt(this.firstNumber.join('')) *
+						parseInt(this.secondNumber.join('')),
+				);
 			case 3:
-				return Math.floor(Number(this.firstNumber) - Number(this.secondNumber));
+				return Math.floor(
+					parseInt(this.firstNumber.join('')) -
+						parseInt(this.secondNumber.join('')),
+				);
 		}
 	}
 }
