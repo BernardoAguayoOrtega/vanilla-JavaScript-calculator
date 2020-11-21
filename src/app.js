@@ -7,11 +7,7 @@ class Calculator {
 
 		this.$screen = document.getElementById('screen');
 		this.$calculator = document.querySelector('.calculator');
-
-		this.$multi = document.getElementById('multi');
-		this.$divide = document.getElementById('divide');
-		this.$sum = document.getElementById('sum');
-		this.$minus = document.getElementById('minus');
+		
 		this.$c = document.getElementById('c');
 		this.$equal = document.getElementById('equal');
 
