@@ -1,0 +1,29 @@
+{
+  "name": "vanilla-javascript-calculator",
+  "version": "1.0.0",
+  "description": "beautiful js calculator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BernardoAguayoOrtega/vanilla-JavaScript-calculator.git"
+  },
+  "keywords": [
+    "js",
+    "css",
+    "html",
+    "calculator",
+    "vanilla-javascript"
+  ],
+  "author": "Bernardo Aguayo Ortega",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BernardoAguayoOrtega/vanilla-JavaScript-calculator/issues"
+  },
+  "homepage": "https://github.com/BernardoAguayoOrtega/vanilla-JavaScript-calculator#readme",
+  "dependencies": {
+    "tailwindcss": "^2.0.1"
+  }
+}
