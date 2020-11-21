@@ -16,9 +16,14 @@
 
 /*calculator parts*/
 .screen-container {
+	align-items: center;
 	background-color: white;
 	border-bottom: 1px solid black;
+	display: flex;
+	font-size: 2rem;
 	height: 15vh;
+	justify-content: center;
+	text-align: center;
 }
 
 .numbers-container {
@@ -72,5 +77,14 @@
 			4px -4px #3e3e3e, 5px -5px #3e3e3e, 6px -6px #3e3e3e, 7px -7px #3e3e3e,
 			8px -8px #3e3e3e;
 		transform: translateX(-8px) translateY(8px);
+	}
+}
+
+/*media query*/
+@media only screen and (max-width: 320px) {
+	.numbers-container {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(3, 1fr);
 	}
 }

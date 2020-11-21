@@ -5,7 +5,7 @@ class Calculator {
 		this.option = true;
 		this.operation = 0;
 
-		this.$screen = document.getElementById('screen');
+		this.$screen = document.querySelector('.screen');
 		this.$calculator = document.querySelector('.calculator');
 
 		this.$c = document.getElementById('c');
