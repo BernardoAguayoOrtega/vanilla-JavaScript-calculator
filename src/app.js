@@ -2,6 +2,7 @@ class Calculator {
 	constructor() {
 		this.firstNumber = [];
 		this.secondNumber = [];
+		this.option = true;
 
 		this.$screen = document.getElementById('screen');
 		this.$calculator = document.querySelector('.calculator');
@@ -37,29 +38,43 @@ class Calculator {
 		event.stopPropagation();
 
 		if (event.target.matches('#one')) {
-			this.addNumbersInsideFirstNumber(1);
+			this.addNumberDependTheOption(1);
 		} else if (event.target.matches('#two')) {
-			this.addNumbersInsideFirstNumber(2);
+			this.option;
+			this.addNumberDependTheOption(2);
 		} else if (event.target.matches('#three')) {
-			this.addNumbersInsideFirstNumber(3);
+			this.addNumberDependTheOption(3);
 		} else if (event.target.matches('#four')) {
-			this.addNumbersInsideFirstNumber(4);
+			this.option;
+			this.addNumberDependTheOption(4);
 		} else if (event.target.matches('#five')) {
-			this.addNumbersInsideFirstNumber(5);
+			this.addNumberDependTheOption(5);
 		} else if (event.target.matches('#six')) {
-			this.addNumbersInsideFirstNumber(6);
+			this.option;
+			this.addNumberDependTheOption(6);
 		} else if (event.target.matches('#seven')) {
-			this.addNumbersInsideFirstNumber(7);
+			this.addNumberDependTheOption(7);
 		} else if (event.target.matches('#eight')) {
-			this.addNumbersInsideFirstNumber(8);
+			this.addNumberDependTheOption(8);
 		} else if (event.target.matches('#nine')) {
-			this.addNumbersInsideFirstNumber(9);
+			this.addNumberDependTheOption(9);
 		} else if (event.target.matches('#zero')) {
-			this.addNumbersInsideFirstNumber(0);
+			this.addNumberDependTheOption(0);
 		}
 	}
 
+	addNumberDependTheOption(number) {
+		this.option
+			? this.addNumbersInsideFirstNumber(number)
+			: this.addNumbersInsideSecondNumber(number);
+	}
+
 	addNumbersInsideFirstNumber(number) {
+		this.firstNumber.push(number);
+		this.$screen.innerText = this.firstNumber.join('');
+	}
+
+	addNumbersInsideSecondNumber(number) {
 		this.firstNumber.push(number);
 		this.$screen.innerText = this.firstNumber.join('');
 	}
