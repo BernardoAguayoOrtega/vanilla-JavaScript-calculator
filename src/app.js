@@ -19,6 +19,7 @@ class Calculator {
 			this.pressNumber(event);
 			this.pressSymbol(event);
 			this.pressEqual(event);
+			this.prestC(event);
 		});
 	}
 
@@ -88,9 +89,13 @@ class Calculator {
 	pressEqual(event) {
 		event.stopPropagation();
 
-		if (event.target.matches('#equal')) {
+		if (
+			event.target.matches('#equal') &&
+			this.firstNumber.length > 0 &&
+			this.secondNumber.length > 0
+		) {
 			this.$screen.innerText = this.doOperation();
-			this.option = true;
+			this.reset();
 		}
 	}
 
@@ -116,6 +121,21 @@ class Calculator {
 					parseInt(this.firstNumber.join('')) -
 						parseInt(this.secondNumber.join('')),
 				);
+		}
+	}
+
+	reset() {
+		this.option = true;
+		this.firstNumber = [];
+		this.secondNumber = [];
+	}
+
+	prestC(event) {
+		event.stopPropagation();
+
+		if (event.target.matches('#C')) {
+			this.reset();
+			this.$screen.innerText = '';
 		}
 	}
 }
