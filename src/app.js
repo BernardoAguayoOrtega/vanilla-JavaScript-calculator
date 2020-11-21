@@ -18,7 +18,7 @@ class Calculator {
 		this.$calculator.addEventListener('click', (event) => {
 			this.pressNumber(event);
 			this.pressSymbol(event);
-			this.pressEqual(event)
+			this.pressEqual(event);
 		});
 	}
 
@@ -53,7 +53,6 @@ class Calculator {
 		this.option
 			? this.addNumbersInsideFirstNumber(number)
 			: this.addNumbersInsideSecondNumber(number);
-		console.log(this.option);
 	}
 
 	addNumbersInsideFirstNumber(number) {
@@ -72,11 +71,11 @@ class Calculator {
 		switch (event.target.id) {
 			case 'divide':
 				return this.selectOperator(0);
-				case 'sum':
-					return this.selectOperator(1);
-				case 'multi':
-					return this.selectOperator(2);
-				case 'minus':
+			case 'sum':
+				return this.selectOperator(1);
+			case 'multi':
+				return this.selectOperator(2);
+			case 'minus':
 				return this.selectOperator(3);
 		}
 	}
@@ -86,10 +85,24 @@ class Calculator {
 		this.operation = operator;
 	}
 
-	pressEqual(event){
+	pressEqual(event) {
 		event.stopPropagation();
 
-		(event.target.matches("#equal")) && alert("yess")
+		if (event.target.matches('#equal'))
+			this.$screen.innerText = this.doOperation();
+	}
+
+	doOperation() {
+		switch (this.operation) {
+			case 0:
+				return Math.floor(Number(this.firstNumber) / Number(this.secondNumber));
+			case 1:
+				return Math.floor(Number(this.firstNumber) + Number(this.secondNumber));
+			case 2:
+				return Math.floor(Number(this.firstNumber) * Number(this.secondNumber));
+			case 3:
+				return Math.floor(Number(this.firstNumber) - Number(this.secondNumber));
+		}
 	}
 }
 
