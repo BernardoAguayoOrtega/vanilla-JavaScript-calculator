@@ -3,6 +3,7 @@ class Calculator {
 		this.firstNumber = [];
 		this.secondNumber = [];
 		this.option = true;
+		this.operation = 0;
 
 		this.$screen = document.getElementById('screen');
 		this.$calculator = document.querySelector('.calculator');
@@ -55,7 +56,7 @@ class Calculator {
 		this.option
 			? this.addNumbersInsideFirstNumber(number)
 			: this.addNumbersInsideSecondNumber(number);
-		console.log(this.option)
+		console.log(this.option);
 	}
 
 	addNumbersInsideFirstNumber(number) {
@@ -65,17 +66,28 @@ class Calculator {
 
 	addNumbersInsideSecondNumber(number) {
 		this.secondNumber.push(number);
-		this.$screen.innerText = this.firstNumber.join('');
+		this.$screen.innerText = this.secondNumber.join('');
 	}
 
 	pressSymbol(event) {
 		event.stopPropagation();
 
-		switch(event.target.id){
-			case "divide": {
-				this.option = false;
-			}
+		switch (event.target.id) {
+			case 'divide':
+				return this.selectOperator(0);
+			case 'sum':
+				return this.selectOperator(1);
+			case 'multi':
+				return this.selectOperator(2);
+			case 'minus':
+				return this.selectOperator(3);
 		}
+	}
+
+	selectOperator(operator) {
+		this.option = false;
+		this.operation = operator;
+		console.log(this.operation)
 	}
 }
 
