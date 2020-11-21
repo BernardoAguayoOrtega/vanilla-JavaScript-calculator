@@ -23,7 +23,5 @@
     "url": "https://github.com/BernardoAguayoOrtega/vanilla-JavaScript-calculator/issues"
   },
   "homepage": "https://github.com/BernardoAguayoOrtega/vanilla-JavaScript-calculator#readme",
-  "dependencies": {
-    "tailwindcss": "^2.0.1"
-  }
+  "dependencies": {}
 }
