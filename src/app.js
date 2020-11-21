@@ -7,7 +7,7 @@ class Calculator {
 
 		this.$screen = document.getElementById('screen');
 		this.$calculator = document.querySelector('.calculator');
-		
+
 		this.$c = document.getElementById('c');
 		this.$equal = document.getElementById('equal');
 
@@ -18,6 +18,7 @@ class Calculator {
 		this.$calculator.addEventListener('click', (event) => {
 			this.pressNumber(event);
 			this.pressSymbol(event);
+			this.pressEqual(event)
 		});
 	}
 
@@ -71,11 +72,11 @@ class Calculator {
 		switch (event.target.id) {
 			case 'divide':
 				return this.selectOperator(0);
-			case 'sum':
-				return this.selectOperator(1);
-			case 'multi':
-				return this.selectOperator(2);
-			case 'minus':
+				case 'sum':
+					return this.selectOperator(1);
+				case 'multi':
+					return this.selectOperator(2);
+				case 'minus':
 				return this.selectOperator(3);
 		}
 	}
@@ -83,7 +84,12 @@ class Calculator {
 	selectOperator(operator) {
 		this.option = false;
 		this.operation = operator;
-		console.log(this.operation)
+	}
+
+	pressEqual(event){
+		event.stopPropagation();
+
+		(event.target.matches("#equal")) && alert("yess")
 	}
 }
 
